@@ -1,0 +1,22 @@
+<h1>Lists#show</h1>
+<p>Find me in app/views/lists/show.html.erb</p>
+
+<h3><%= @list.name %></h3>
+
+
+
+<% @list.bookmarks.each do |b| %>
+<p><%= b.comment %> - <%= b.movie.title %></p>
+      <%= link_to "Remove",
+                  bookmark_path(b),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %>
+
+<% end %>
+<h2>add new bookmark</h2>
+
+<%= simple_form_for [@list,@bookmark] do |f| %>
+  <%= f.input :comment %>
+  <%= f.association :movie %>
+  <%= f.submit "Submit list", class: "btn btn-primary" %>
+<% end %>
