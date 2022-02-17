@@ -1,22 +1,35 @@
-<h1>Lists#show</h1>
-<p>Find me in app/views/lists/show.html.erb</p>
 
-<h3><%= @list.name %></h3>
-
-
-
+<div class="banner mb-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @list.picture_url %>);">
+  <div class="container">
+    <h1><%= @list.name %></h1>
+  </div>
+</div>
+<div class="container">
+<div class="cards mb-5">
 <% @list.bookmarks.each do |b| %>
-<p><%= b.comment %> - <%= b.movie.title %></p>
-      <%= link_to "Remove",
+
+<div class="card-product ">
+  <img src=<%=b.movie.poster_url %> />
+  <div class="card-product-infos">
+    <h2><%= b.movie.title %></h2>
+    <p><%= b.comment %></p>
+    <%= link_to "Remove",
                   bookmark_path(b),
                   method: :delete,
-                  data: { confirm: "Are you sure?" } %>
-
+                  data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+  </div>
+</div>
 <% end %>
-<h2>add new bookmark</h2>
+</div>
+
+
+
+<div class="alert-light p-5">
+<h2>Add a new Movie</h2>
 
 <%= simple_form_for [@list,@bookmark] do |f| %>
   <%= f.input :comment %>
   <%= f.association :movie %>
-  <%= f.submit "Submit list", class: "btn btn-primary" %>
+  <%= f.submit "Add Movie", class: "btn btn-primary" %>
 <% end %>
+</div>

@@ -1,7 +1,9 @@
-<h1>Lists#new</h1>
-<p>Find me in app/views/lists/new.html.erb</p>
+<div class="container py-5">
 
+<h3>Add list</h3>
 <%= simple_form_for @list do |f| %>
   <%= f.input :name %>
+  <%= f.input :picture_url %>
   <%= f.submit "Submit list", class: "btn btn-primary" %>
 <% end %>
+</div>
