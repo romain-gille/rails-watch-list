@@ -83,7 +83,14 @@ h2 {
   padding: 16px;
 }
 
-.card-category {
+
+.link-without-decoration{
+
+
+  text-decoration: none;
+
+
+  .card-category {
   background-size: cover;
   background-position: center;
   height: 180px;
@@ -97,8 +104,6 @@ h2 {
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   text-decoration: none;
-  a{
-    color: white;
-    text-decoration: none;
-  }
+
+}
 }
