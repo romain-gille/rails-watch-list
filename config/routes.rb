@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+root to: "application#home"
   resources :lists, only: [:create, :index, :destroy, :show, :new] do
 
     resources :bookmarks, only: [:create]

@@ -13,12 +13,12 @@
 <%= link_to "Add new list", new_list_path, class: "btn btn-primary mb-3" %>
 <div class="cards">
 <% @lists.each do |list| %>
-
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.picture_url %>)">
-    <%= link_to list.name, list_path(list) %>
+<%= link_to list_path(list) do%>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(   <%= list.photo.attached? ?  list.photo.url : list.picture_url %>)">
+    <%= list.name %>
   </div>
 
-
+<% end %>
 <% end %>
 
 </div>
